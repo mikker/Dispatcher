@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.license          = 'MIT'
   s.author           = { "Mikkel Malmberg" => "mikkel@brnbw.com" }
   s.source           = { :git => "https://github.com/mikker/Dispatcher.swift.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.social_media_url = 'https://twitter.com/mikker'
 
   s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.10'
