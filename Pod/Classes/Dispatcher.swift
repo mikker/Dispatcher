@@ -4,29 +4,29 @@ var lastId = 1
 public class Dispatcher {
     public static let instance = Dispatcher()
 
-    var callbacks: [String: (AnyObject?) -> Void] = [:]
+    var callbacks: [String: (Any?) -> Void] = [:]
     var isPending: [String: (Bool)] = [:]
     var isHandled: [String: (Bool)] = [:]
     var isDispatching: Bool = false
-    var pendingPayload: AnyObject?
-    
+    var pendingPayload: Any?
+
     public init() {}
-    
+
     // Public
-    
-    public func register(callback: (payload: AnyObject?) -> Void) -> String {
+
+    public func register(callback: (payload: Any?) -> Void) -> String {
         let id = "\(prefix)\(lastId++)"
         callbacks[id] = (callback)
         return id
     }
-    
+
     public func unregister(id: String) {
         if !callbacks.keys.contains(id) {
             debugPrint("Dispatcher.unregister(...): `\(id)` does not map to a registered callback.")
         }
         callbacks.removeValueForKey(id)
     }
-    
+
     public func waitFor(ids: [String]) {
         if !isDispatching {
             debugPrint("Dispatcher.waitFor(...): Must be invoked while dispatching.")
@@ -41,8 +41,8 @@ public class Dispatcher {
             invokeCallback(id)
         }
     }
-    
-    public func dispatch(payload: AnyObject?) {
+
+    public func dispatch(payload: Any?) {
         if isDispatching {
             debugPrint("Dispatch.dispatch(...): Cannot dispatch in the middle of a dispatch.")
         }
@@ -55,16 +55,16 @@ public class Dispatcher {
             invokeCallback(id)
         }
     }
-    
+
     // Private
-    
+
     private func invokeCallback(id: String) {
         isPending[id] = true
         callbacks[id]!(pendingPayload)
         isHandled[id] = true
     }
-    
-    private func startDispatching(payload: AnyObject?) {
+
+    private func startDispatching(payload: Any?) {
         for id in callbacks.keys {
             isPending[id] = false
             isHandled[id] = false
@@ -72,7 +72,7 @@ public class Dispatcher {
         pendingPayload = payload
         isDispatching = true
     }
-    
+
     private func stopDispatching() {
         pendingPayload = nil
         isDispatching = false
