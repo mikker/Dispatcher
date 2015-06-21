@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import Dispatcher
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        Dispatcher.instance.register { (payload) -> Void in
+            debugPrint("recieved \(payload)")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,5 +25,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func dispatch(sender: AnyObject?) {
+        Dispatcher.instance.dispatch(["message": "Here I am!"])
+    }
+    
 }
 
