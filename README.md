@@ -1,6 +1,6 @@
 # Dispatcher
 
-[![CI Status](http://img.shields.io/travis/Mikkel Malmberg/Dispatcher.svg?style=flat)](https://travis-ci.org/Mikkel Malmberg/Dispatcher)
+[![CI Status](http://img.shields.io/travis/mikker/Dispatcher.svg?style=flat)](https://travis-ci.org/mikker/Dispatcher)
 [![Version](https://img.shields.io/cocoapods/v/Dispatcher.svg?style=flat)](http://cocoapods.org/pods/Dispatcher)
 [![License](https://img.shields.io/cocoapods/l/Dispatcher.svg?style=flat)](http://cocoapods.org/pods/Dispatcher)
 [![Platform](https://img.shields.io/cocoapods/p/Dispatcher.svg?style=flat)](http://cocoapods.org/pods/Dispatcher)
