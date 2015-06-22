@@ -1,9 +1,9 @@
-let prefix = "ID_"
-var lastId = 1
-
 public class Dispatcher {
     public static let instance = Dispatcher()
 
+    let prefix = "ID_"
+    var lastId = 1
+    
     var callbacks: [String: (Any?) -> Void] = [:]
     var isPending: [String: (Bool)] = [:]
     var isHandled: [String: (Bool)] = [:]

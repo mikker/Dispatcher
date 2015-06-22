@@ -14,11 +14,10 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
                        Facebook Flux' Dispatcher rewritten in Swift.
                        DESC
-  s.homepage         = "https://github.com/mikker/Dispatcher.swift"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.homepage         = "https://github.com/mikker/Dispatcher"
   s.license          = 'MIT'
   s.author           = { "Mikkel Malmberg" => "mikkel@brnbw.com" }
-  s.source           = { :git => "https://github.com/mikker/Dispatcher.swift.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/mikker/Dispatcher.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/mikker'
 
   s.ios.deployment_target = '8.0'
@@ -29,8 +28,4 @@ Pod::Spec.new do |s|
   s.resource_bundles = {
     'Dispatcher' => ['Pod/Assets/*.png']
   }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
