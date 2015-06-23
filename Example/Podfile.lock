@@ -1,5 +1,5 @@
 PODS:
-  - Dispatcher (0.1.0)
+  - Dispatcher (0.1.2)
 
 DEPENDENCIES:
   - Dispatcher (from `../`)
@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Dispatcher: 670a8fac12a8e97c89031fe1b074843cd0d34e7c
+  Dispatcher: 23cca0e9ac5e836c794fc2590f5cd98ca499fb0e
 
 COCOAPODS: 0.37.2

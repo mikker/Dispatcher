@@ -1,25 +1,21 @@
 {
   "name": "Dispatcher",
-  "version": "0.1.0",
-  "summary": "A short description of Dispatcher.",
-  "description": "                       An optional longer description of Dispatcher\n\n                       * Markdown format.\n                       * Don't worry about the indent, we strip it!\n",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/Dispatcher",
+  "version": "0.1.2",
   "license": "MIT",
+  "summary": "Facebook Flux' Dispatcher rewritten in Swift",
+  "homepage": "https://github.com/mikker/Dispatcher",
   "authors": {
     "Mikkel Malmberg": "mikkel@brnbw.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/Dispatcher.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/mikker/Dispatcher.git",
+    "tag": "0.1.2"
   },
+  "social_media_url": "https://twitter.com/mikker",
   "platforms": {
-    "ios": "8.0"
+    "ios": "8.0",
+    "osx": "10.9"
   },
-  "requires_arc": true,
   "source_files": "Pod/Classes/**/*",
-  "resource_bundles": {
-    "Dispatcher": [
-      "Pod/Assets/*.png"
-    ]
-  }
+  "requires_arc": true
 }

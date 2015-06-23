@@ -3,11 +3,11 @@ import Dispatcher
 
 class MockCallback {
     var name: String = ""
-    var calls: [AnyObject?] = []
+    var calls: [Any?] = []
     init(name: String) {
         self.name = name
     }
-    func call(payload: AnyObject?) -> Void {
+    func call(payload: Any?) -> Void {
         print("calling \(name) with \(payload)")
         self.calls.append(payload)
     }
@@ -38,7 +38,7 @@ class DispatcherTest: XCTestCase {
         dispatcher.dispatch(payload)
         
         XCTAssertEqual(callbackA.calls.count, 1)
-        XCTAssert(callbackA.calls[0]! === payload)
+        XCTAssertEqual(callbackA.calls[0]! === payload)
 
         XCTAssertEqual(callbackB.calls.count, 1)
         XCTAssert(callbackB.calls[0]! === payload)
