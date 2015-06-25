@@ -3,13 +3,13 @@ import Dispatcher
 
 class MockCallback {
     var name: String = ""
-    var calls: [Any?] = []
+    var calls: [[String: Any]] = []
     init(name: String) {
         self.name = name
     }
     func call(payload: Any?) -> Void {
         print("calling \(name) with \(payload)")
-        self.calls.append(payload)
+        self.calls.append(payload as! [String: Any])
     }
 }
 
@@ -33,23 +33,23 @@ class DispatcherTest: XCTestCase {
     func testExecutesAllSubscriberCallbacks() {
         dispatcher.register(callbackA.call)
         dispatcher.register(callbackB.call)
-        let payload = [:]
+        let payload: [String: Any] = ["test": 1]
         
         dispatcher.dispatch(payload)
         
         XCTAssertEqual(callbackA.calls.count, 1)
-//        XCTAssertEqual(callbackA.calls[0]! === payload)
+        XCTAssertEqual(callbackA.calls[0]["test"] as! Int, 1)
 
         XCTAssertEqual(callbackB.calls.count, 1)
-//        XCTAssert(callbackB.calls[0]! === payload)
+        XCTAssertEqual(callbackB.calls[0]["test"] as! Int, 1)
 
         dispatcher.dispatch(payload)
         
         XCTAssertEqual(callbackA.calls.count, 2)
-//        XCTAssert(callbackA.calls[1]! === payload)
+        XCTAssertEqual(callbackA.calls[1]["test"] as! Int, 1)
         
         XCTAssertEqual(callbackB.calls.count, 2)
-//        XCTAssert(callbackB.calls[1]! === payload)
+        XCTAssertEqual(callbackB.calls[1]["test"] as! Int, 1)
     }
     
     func testWaitsForCallbacksRegisteredEarlier() {
@@ -58,37 +58,37 @@ class DispatcherTest: XCTestCase {
         dispatcher.register { (payload) -> Void in
             self.dispatcher.waitFor([tokenA])
             XCTAssertEqual(self.callbackA.calls.count, 1)
-//            XCTAssert(payload === self.callbackA.calls[0]!)
+            XCTAssertEqual(self.callbackA.calls[0]["test"] as! Int, 1)
             self.callbackB.call(payload)
         }
         
-        let payload = [:]
+        let payload: [String: Any] = ["test": 1]
         dispatcher.dispatch(payload)
         
         XCTAssertEqual(callbackA.calls.count, 1)
-//        XCTAssert(callbackA.calls[0]! === payload)
+        XCTAssertEqual(callbackA.calls[0]["test"] as! Int, 1)
    
         XCTAssertEqual(callbackB.calls.count, 1)
-//        XCTAssert(callbackB.calls[0]! === payload)
+        XCTAssertEqual(callbackB.calls[0]["test"] as! Int, 1)
     }
     
     func testProperlyUnregistersCallbacks() {
         dispatcher.register(callbackA.call)
         let tokenB = dispatcher.register(callbackB.call)
-        let payload = [:]
+        let payload: [String: Any] = ["test": 1]
         dispatcher.dispatch(payload)
         
         XCTAssertEqual(callbackA.calls.count, 1)
-//        XCTAssert(callbackA.calls[0]! === payload)
+        XCTAssertEqual(callbackA.calls[0]["test"] as! Int, 1)
         
         XCTAssertEqual(callbackB.calls.count, 1)
-//        XCTAssert(callbackB.calls[0]! === payload)
+        XCTAssertEqual(callbackB.calls[0]["test"] as! Int, 1)
         
         dispatcher.unregister(tokenB)
         dispatcher.dispatch(payload)
         
         XCTAssertEqual(callbackA.calls.count, 2)
-//        XCTAssert(callbackA.calls[1]! === payload)
+        XCTAssertEqual(callbackA.calls[1]["test"] as! Int, 1)
         
         XCTAssertEqual(callbackB.calls.count, 1)
     }
