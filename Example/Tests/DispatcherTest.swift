@@ -30,6 +30,12 @@ class DispatcherTest: XCTestCase {
         super.tearDown()
     }
     
+    func testGeneratesTokens() {
+        let tokenA = dispatcher.tokenGenerator.next()!
+        let tokenB = dispatcher.tokenGenerator.next()!
+        XCTAssertNotEqual(tokenA, tokenB)
+    }
+    
     func testExecutesAllSubscriberCallbacks() {
         dispatcher.register(callbackA.call)
         dispatcher.register(callbackB.call)
