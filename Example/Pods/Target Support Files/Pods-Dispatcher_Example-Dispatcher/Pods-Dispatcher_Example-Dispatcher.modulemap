@@ -1,6 +1,0 @@
-framework module Dispatcher {
-  umbrella header "Pods-Dispatcher_Example-Dispatcher-umbrella.h"
-
-  export *
-  module * { export * }
-}
