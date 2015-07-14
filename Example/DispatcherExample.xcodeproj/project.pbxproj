@@ -13,8 +13,9 @@
 		428229061B52A9D4001DB784 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 428229051B52A9D4001DB784 /* Assets.xcassets */; };
 		428229091B52A9D4001DB784 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 428229071B52A9D4001DB784 /* LaunchScreen.storyboard */; };
 		428229121B52AA0D001DB784 /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428229111B52AA0D001DB784 /* Dispatcher.swift */; };
-		4282291A1B52AB65001DB784 /* DispatcherExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428229191B52AB65001DB784 /* DispatcherExampleTests.swift */; };
 		428229221B52ABC3001DB784 /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428229111B52AA0D001DB784 /* Dispatcher.swift */; };
+		42D27E351B558938007DCA59 /* DispatcherExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D27E331B558938007DCA59 /* DispatcherExampleTests.swift */; };
+		42D27E361B558938007DCA59 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42D27E341B558938007DCA59 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +38,8 @@
 		4282290A1B52A9D4001DB784 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		428229111B52AA0D001DB784 /* Dispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dispatcher.swift; path = ../../Dispatcher.swift; sourceTree = "<group>"; };
 		428229171B52AB65001DB784 /* DispatcherExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DispatcherExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		428229191B52AB65001DB784 /* DispatcherExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatcherExampleTests.swift; sourceTree = "<group>"; };
-		4282291B1B52AB65001DB784 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42D27E331B558938007DCA59 /* DispatcherExampleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatcherExampleTests.swift; sourceTree = "<group>"; };
+		42D27E341B558938007DCA59 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				428228FD1B52A9D4001DB784 /* DispatcherExample */,
-				428229181B52AB65001DB784 /* DispatcherExampleTests */,
+				42D27E321B558938007DCA59 /* Tests */,
 				428228FC1B52A9D4001DB784 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,13 +100,14 @@
 			name = Dispatcher;
 			sourceTree = "<group>";
 		};
-		428229181B52AB65001DB784 /* DispatcherExampleTests */ = {
+		42D27E321B558938007DCA59 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				428229191B52AB65001DB784 /* DispatcherExampleTests.swift */,
-				4282291B1B52AB65001DB784 /* Info.plist */,
+				42D27E331B558938007DCA59 /* DispatcherExampleTests.swift */,
+				42D27E341B558938007DCA59 /* Info.plist */,
 			);
-			path = DispatcherExampleTests;
+			name = Tests;
+			path = ../Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +200,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42D27E361B558938007DCA59 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,7 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				428229221B52ABC3001DB784 /* Dispatcher.swift in Sources */,
-				4282291A1B52AB65001DB784 /* DispatcherExampleTests.swift in Sources */,
+				42D27E351B558938007DCA59 /* DispatcherExampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,7 +365,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = DispatcherExampleTests/Info.plist;
+				INFOPLIST_FILE = ../Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.brnbw.DispatcherExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -374,7 +377,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = DispatcherExampleTests/Info.plist;
+				INFOPLIST_FILE = ../Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.brnbw.DispatcherExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -410,6 +413,7 @@
 				428229201B52AB65001DB784 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
