@@ -86,7 +86,7 @@ extension Dispatcher {
 }
 
 extension Dispatcher.TokenStream: CollectionType {
-    typealias Index = Int
+    public typealias Index = Int
     public var startIndex: Int { return 0 }
     public var endIndex: Int { return Int.max }
     
