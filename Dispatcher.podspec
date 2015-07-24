@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Dispatcher"
-  s.version          = "0.1.3"
+  s.version          = "0.1.4"
   s.license          = 'MIT'
   s.summary          = "Facebook Flux' Dispatcher rewritten in Swift"
   s.homepage         = "https://github.com/mikker/Dispatcher"
