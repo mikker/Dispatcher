@@ -43,18 +43,18 @@ class DispatcherTest: XCTestCase {
         dispatcher.dispatch(payload)
         
         XCTAssertEqual(callbackA.calls.count, 1)
-        XCTAssertEqual(callbackA.calls[0]["test"] as! Int, 1)
+        XCTAssertEqual(callbackA.calls[0]["test"] as? Int, 1)
         
         XCTAssertEqual(callbackB.calls.count, 1)
-        XCTAssertEqual(callbackB.calls[0]["test"] as! Int, 1)
+        XCTAssertEqual(callbackB.calls[0]["test"] as? Int, 1)
         
         dispatcher.dispatch(payload)
         
         XCTAssertEqual(callbackA.calls.count, 2)
-        XCTAssertEqual(callbackA.calls[1]["test"] as! Int, 1)
+        XCTAssertEqual(callbackA.calls[1]["test"] as? Int, 1)
         
         XCTAssertEqual(callbackB.calls.count, 2)
-        XCTAssertEqual(callbackB.calls[1]["test"] as! Int, 1)
+        XCTAssertEqual(callbackB.calls[1]["test"] as? Int, 1)
     }
     
     func testWaitsForCallbacksRegisteredEarlier() {
@@ -63,7 +63,7 @@ class DispatcherTest: XCTestCase {
         dispatcher.register { (payload) -> Void in
             self.dispatcher.waitFor([tokenA])
             XCTAssertEqual(self.callbackA.calls.count, 1)
-            XCTAssertEqual(self.callbackA.calls[0]["test"] as! Int, 1)
+            XCTAssertEqual(self.callbackA.calls[0]["test"] as? Int, 1)
             self.callbackB.call(payload)
         }
         
@@ -71,10 +71,10 @@ class DispatcherTest: XCTestCase {
         dispatcher.dispatch(payload)
         
         XCTAssertEqual(callbackA.calls.count, 1)
-        XCTAssertEqual(callbackA.calls[0]["test"] as! Int, 1)
+        XCTAssertEqual(callbackA.calls[0]["test"] as? Int, 1)
         
         XCTAssertEqual(callbackB.calls.count, 1)
-        XCTAssertEqual(callbackB.calls[0]["test"] as! Int, 1)
+        XCTAssertEqual(callbackB.calls[0]["test"] as? Int, 1)
     }
     
     func testProperlyUnregistersCallbacks() {
@@ -84,16 +84,16 @@ class DispatcherTest: XCTestCase {
         dispatcher.dispatch(payload)
         
         XCTAssertEqual(callbackA.calls.count, 1)
-        XCTAssertEqual(callbackA.calls[0]["test"] as! Int, 1)
+        XCTAssertEqual(callbackA.calls[0]["test"] as? Int, 1)
         
         XCTAssertEqual(callbackB.calls.count, 1)
-        XCTAssertEqual(callbackB.calls[0]["test"] as! Int, 1)
+        XCTAssertEqual(callbackB.calls[0]["test"] as? Int, 1)
         
         dispatcher.unregister(tokenB)
         dispatcher.dispatch(payload)
         
         XCTAssertEqual(callbackA.calls.count, 2)
-        XCTAssertEqual(callbackA.calls[1]["test"] as! Int, 1)
+        XCTAssertEqual(callbackA.calls[1]["test"] as? Int, 1)
         
         XCTAssertEqual(callbackB.calls.count, 1)
     }
